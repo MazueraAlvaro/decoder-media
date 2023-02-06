@@ -11,9 +11,8 @@ const getVideoChunks = async (url) => {
     const [, endContent] = rangeContent.split("-");
     bytesEnd = parseInt(endMedia);
 
-    const body = await response.blob();
     await sendToEncoder(
-      body,
+      await response.blob(),
       endBytesContent == -1,
       parseInt(endContent) + 10 > bytesEnd,
       name
